@@ -1,9 +1,11 @@
 ## Emacs, make this -*- mode: sh; -*-
 
+## Modification of the Dockerfile originally created by Dirk
+## Eddelbuettel and Carl Boettiger at https://github.com/rocker-org/rocker
+
 ## start with the Docker 'base R' Debian-based image
 FROM r-base:latest
 
-## This handle reaches Carl and Dirk
 MAINTAINER "Francois Michonneau" francois.michonneau@gmail.com
 
 ## Remain current
