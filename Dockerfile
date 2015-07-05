@@ -74,7 +74,7 @@ RUN cd /tmp \
 	&& svn co http://svn.r-project.org/R/trunk R-devel
 
 ## Build and install according extending the standard 'recipe' I emailed/posted years ago
-## Use same flags as listed here: http://www.stats.ox.ac.uk/pub/bdr/memtests/README.txt
+## Modified to use the same flags as listed here: http://www.stats.ox.ac.uk/pub/bdr/memtests/README.txt
 RUN cd /tmp/R-devel \
 	&& R_PAPERSIZE=letter \
 	   R_BATCHSAVE="--no-save --no-restore" \
