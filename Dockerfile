@@ -96,7 +96,6 @@ RUN cd /tmp/R-devel \
 	   CXX1X="g++-5 -std=c++11 -fsanitize=address,undefined -fno-omit-frame-pointer" \
 	   FC="gfortran-5 -fsanitize=address" \
 	   F77="gfortran-5 -fsanitize=address" \
-	   FFLAGS = "-g -O2 -mtune=native -fbounds-chec" \
 	   ./configure --enable-R-shlib \
 	       --without-blas \
 	       --without-lapack \
