@@ -113,6 +113,19 @@ RUN echo "R_LIBS=\${R_LIBS-'/usr/local/lib/R/site-library:/usr/local/lib/R/libra
 ## Set default CRAN repo
 RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/local/lib/R/etc/Rprofile.site
 
+## Create Makevars file similar to http://www.stats.ox.ac.uk/pub/bdr/memtests/README.txt
+RUN mkdir $HOME/.R/ \
+    && echo "CC = gcc -std=gnu99 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
+    && echo "CXX = g++ -std=c++11 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
+    && echo "CXX1X = g++ -std=c++11 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
+    && echo "F77 = gfortran -fsanitize=address" >> $HOME/.R/Makevars \
+    && echo "FC = gfortran -fsanitize=address" >> $HOME/.R/Makevars \
+    && echo "FCFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars \
+    && echo "FFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars
+
+RUN setenv ASAN_OPTIONS 'detect_leaks=0:detect_odr_violation=0'
+
+
 ## to also build littler against RD
 ##   1)	 apt-get install git autotools-dev automake
 ##   2)	 use CC from RD CMD config CC, ie same as R
