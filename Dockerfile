@@ -115,11 +115,11 @@ RUN echo 'options("repos"="http://cran.rstudio.com")' >> /usr/local/lib/R/etc/Rp
 
 ## Create Makevars file similar to http://www.stats.ox.ac.uk/pub/bdr/memtests/README.txt
 RUN mkdir $HOME/.R/ \
-    && echo "CC = gcc -std=gnu99 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
-    && echo "CXX = g++ -std=c++11 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
-    && echo "CXX1X = g++ -std=c++11 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
-    && echo "F77 = gfortran -fsanitize=address" >> $HOME/.R/Makevars \
-    && echo "FC = gfortran -fsanitize=address" >> $HOME/.R/Makevars \
+    && echo "CC = gcc-5 -std=gnu99 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
+    && echo "CXX = g++-5 -std=c++11 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
+    && echo "CXX1X = g++-5 -std=c++11 -fsanitize=address,undefined -fno-omit-frame-pointer" >> $HOME/.R/Makevars \
+    && echo "F77 = gfortran-5 -fsanitize=address" >> $HOME/.R/Makevars \
+    && echo "FC = gfortran-5 -fsanitize=address" >> $HOME/.R/Makevars \
     && echo "FCFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars \
     && echo "FFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars
 
