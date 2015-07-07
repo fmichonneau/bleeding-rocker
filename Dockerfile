@@ -123,7 +123,7 @@ RUN mkdir $HOME/.R/ \
     && echo "FCFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars \
     && echo "FFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars
 
-RUN setenv ASAN_OPTIONS 'detect_leaks=0:detect_odr_violation=0'
+RUN export ASAN_OPTIONS='detect_leaks=0:detect_odr_violation=0'
 
 
 ## to also build littler against RD
