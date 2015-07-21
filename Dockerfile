@@ -100,7 +100,6 @@ RUN cd /tmp/R-devel \
 	       --without-blas \
 	       --without-lapack \
 	       --with-readline \
-	       --without-recommended-packages \
 	       --program-suffix=dev \
 	       --disable-openmp \
 	&& make \
