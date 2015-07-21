@@ -49,6 +49,7 @@ RUN apt-get update -qq \
 		libx11-dev \
 		libxt-dev \
 		mpack \
+		rsync \
 		subversion \
 		tcl8.5-dev \
 		texinfo \
@@ -71,7 +72,11 @@ RUN apt-get update -qq \
 
 ## Check out R-devel
 RUN cd /tmp \
-	&& svn co http://svn.r-project.org/R/trunk R-devel
+    && svn co http://svn.r-project.org/R/trunk R-devel
+
+## Download the sources for the recommended packages
+RUN cd /tmp/R-devel \
+    && ./tools/rsync-recommended
 
 ## Build and install according extending the standard 'recipe' I emailed/posted years ago
 ## Modified to use the same flags as listed here: http://www.stats.ox.ac.uk/pub/bdr/memtests/README.txt
