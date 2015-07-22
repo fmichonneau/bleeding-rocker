@@ -127,7 +127,8 @@ RUN mkdir $HOME/.R/ \
     && echo "F77 = gfortran-5 -fsanitize=address" >> $HOME/.R/Makevars \
     && echo "FC = gfortran-5 -fsanitize=address" >> $HOME/.R/Makevars \
     && echo "FCFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars \
-    && echo "FFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars
+    && echo "FFLAGS = -g -O2 -mtune=native -fbounds-check" >> $HOME/.R/Makevars \
+    && echo "CFLAGS = -I/usr/include/libxml2" >> $HOME/.R/Makevars
 
 RUN export ASAN_OPTIONS='detect_leaks=0:detect_odr_violation=0'
 
@@ -157,3 +158,5 @@ RUN cd /usr/local/bin \
 	&& mv Rscript Rscriptdevel \
 	&& ln -s Rdevel RD \
 	&& ln -s Rscriptdevel RDscript
+
+RUN RDscript -e "install.packages(c('ape', 'Rcpp', 'ape', 'Rcpp', 'rncl', 'RNeXML', 'testthat'))"
