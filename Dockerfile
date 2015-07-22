@@ -48,7 +48,7 @@ RUN apt-get update -qq \
 		libtiff5-dev \
 		libx11-dev \
 		libxml2-dev \
-		libxslt1-dev
+		libxslt1-dev \
 		libxt-dev \
 		mpack \
 		rsync \
