@@ -47,6 +47,8 @@ RUN apt-get update -qq \
 		libreadline-dev \
 		libtiff5-dev \
 		libx11-dev \
+		libxml2-dev \
+		libxslt1-dev
 		libxt-dev \
 		mpack \
 		rsync \
